@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Why Power Automate is the Most Underrated Tool in Microsoft 365 — Mashudu Ramoba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.post-hero{padding:calc(var(--nav-h) + 4rem) 4% 4rem;background:var(--ink2);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.post-hero::before{content:"AUTOMATE";position:absolute;font-family:var(--fd);font-size:18vw;line-height:.9;color:var(--paper);opacity:.03;right:-2vw;bottom:-3vw;pointer-events:none;letter-spacing:.04em}
+.post-hero-inner{max-width:820px;position:relative;z-index:1}
+.post-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);font-weight:500;margin-bottom:2rem;transition:color .2s}
+.post-back:hover{color:var(--acid)}
+.post-hero-meta{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.post-cat{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .6rem;border-radius:1rem;background:rgba(192,132,252,.1);color:#c084fc;border:1px solid rgba(192,132,252,.2)}
+.post-date,.post-read-time{font-size:.62rem;color:var(--mist)}
+.post-hero-title{font-family:var(--fd);font-size:clamp(2rem,5vw,4rem);letter-spacing:.03em;line-height:.95;color:var(--paper);margin-bottom:1.2rem}
+.post-hero-excerpt{font-size:.95rem;color:var(--mist2);line-height:1.85;max-width:680px}
+.post-author-row{display:flex;align-items:center;gap:.8rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.post-avatar{width:40px;height:40px;border-radius:50%;background:var(--acid);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.9rem;flex-shrink:0}
+.author-name{font-size:.82rem;font-weight:600;color:var(--paper)}
+.author-meta{font-size:.65rem;color:var(--mist);letter-spacing:.06em}
+.post-article{max-width:760px;margin:0 auto;padding:5rem 4%}
+.post-article h2{font-family:var(--fd);font-size:1.8rem;letter-spacing:.04em;color:var(--paper);margin:3rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.post-article h3{font-family:var(--fd);font-size:1.3rem;letter-spacing:.04em;color:var(--paper);margin:2rem 0 .8rem}
+.post-article p{font-size:.9rem;color:var(--mist2);line-height:1.92;margin-bottom:1.2rem}
+.post-article p strong{color:var(--paper);font-weight:600}
+.post-article ul,.post-article ol{margin:0 0 1.2rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.post-article li{font-size:.88rem;color:var(--mist2);line-height:1.8}
+.post-article li strong{color:var(--paper);font-weight:600}
+.post-article pre{background:var(--ink3);border:1px solid var(--border);border-left:3px solid var(--acid);border-radius:.6rem;padding:1.5rem;overflow-x:auto;margin:1.5rem 0;font-family:'Courier New',monospace;font-size:.78rem;line-height:1.7;color:#a8d8a8}
+.post-article code{background:rgba(212,245,60,.08);color:var(--acid);font-family:'Courier New',monospace;font-size:.82em;padding:.15rem .4rem;border-radius:.3rem}
+.callout{border-radius:.7rem;padding:1.2rem 1.5rem;margin:1.5rem 0;border-left:3px solid}
+.callout-tip{background:rgba(212,245,60,.06);border-color:var(--acid)}
+.callout-warn{background:rgba(245,158,11,.06);border-color:#f59e0b}
+.callout-info{background:rgba(59,191,252,.06);border-color:#3bbffc}
+.callout-title{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.callout-tip .callout-title{color:var(--acid)}
+.callout-warn .callout-title{color:#f59e0b}
+.callout-info .callout-title{color:#3bbffc}
+.callout p{margin-bottom:0;font-size:.85rem}
+.use-case{background:var(--ink3);border:1px solid var(--border);border-radius:.8rem;padding:1.5rem;margin:1rem 0}
+.use-case-title{font-family:var(--fd);font-size:1rem;letter-spacing:.06em;color:var(--paper);margin-bottom:.5rem}
+.use-case-tag{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.18rem .55rem;border-radius:1rem;background:rgba(192,132,252,.1);color:#c084fc;border:1px solid rgba(192,132,252,.2);margin-bottom:.7rem;display:inline-block}
+.use-case p{font-size:.84rem;color:var(--mist2);margin-bottom:0;line-height:1.75}
+.key-takeaway{background:linear-gradient(135deg,rgba(212,245,60,.06),rgba(212,245,60,.02));border:1px solid rgba(212,245,60,.15);border-radius:1rem;padding:2rem;margin:2.5rem 0}
+.key-takeaway h4{font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--acid);margin-bottom:1rem}
+.key-takeaway ul{margin-left:0;list-style:none}
+.key-takeaway li{padding:.4rem 0 .4rem 1.2rem;position:relative;font-size:.85rem;color:var(--mist2);border-bottom:1px solid rgba(212,245,60,.06)}
+.key-takeaway li:last-child{border-bottom:none}
+.key-takeaway li::before{content:'→';position:absolute;left:0;color:var(--acid);font-size:.75rem;top:.5rem}
+.post-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 4%;border-top:1px solid var(--border);background:var(--ink2);flex-wrap:wrap;gap:1rem}
+.pnl{display:flex;flex-direction:column;gap:.4rem;max-width:280px}
+.pnl-label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.pnl-title{font-family:var(--fd);font-size:1rem;letter-spacing:.04em;color:var(--paper);transition:color .2s}
+.pnl:hover .pnl-title{color:var(--acid)}
+</style>
+</head>
+<body>
+<div id="reading-bar"></div>
+<div id="scroll-progress"></div>
+<nav id="nav">
+  <a href="index.html" class="nl"><div class="nl-badge">MR</div><div class="nl-text"><span class="nl-name">Mashudu Ramoba</span><span class="nl-role">Software Developer</span></div></a>
+  <div class="nl-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certs</a><a href="contact.html">Contact</a></div>
+  <div class="nl-r"><div class="nl-avail"><span class="pdot"></span>Available</div><button class="nl-hire" onclick="location.href='contact.html'">Hire Me</button><button class="nl-ham" id="ham"><span></span><span></span><span></span></button></div>
+</nav>
+<div id="drawer"><a href="index.html" onclick="closeDrawer()">Home</a><a href="about.html" onclick="closeDrawer()">About</a><a href="experience.html" onclick="closeDrawer()">Experience</a><a href="projects.html" onclick="closeDrawer()">Projects</a><a href="blog.html" onclick="closeDrawer()">Blog</a><a href="certifications.html" onclick="closeDrawer()">Certifications</a><a href="contact.html" onclick="closeDrawer()">Contact</a></div>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <a href="blog.html" class="post-back">← Back to Blog</a>
+    <div class="post-hero-meta">
+      <span class="post-cat">Industry</span>
+      <span class="post-date">14 February 2025</span>
+      <span class="post-read-time">· 7 min read</span>
+    </div>
+    <h1 class="post-hero-title">Why Power Automate is the Most Underrated Tool in Microsoft 365</h1>
+    <p class="post-hero-excerpt">Most companies have it. Almost none use it properly. After building production workflows at Landis+Gyr that saved hours of manual work weekly, here's my honest take on what Power Automate can really do in 2025.</p>
+    <div class="post-author-row">
+      <div class="post-avatar">MR</div>
+      <div><div class="author-name">Mashudu Ramoba</div><div class="author-meta">IT Intern · Landis+Gyr EMEA · Power Automate Developer</div></div>
+    </div>
+  </div>
+</div>
+
+<article class="post-article rv">
+
+  <p>Every company with a Microsoft 365 licence has Power Automate. It comes included — no extra cost, no installation required. And yet in most organisations, it sits completely unused while staff spend hours every week on tasks a well-designed flow could handle in seconds.</p>
+  <p>I built production Power Automate workflows at Landis+Gyr as part of my IT internship. Watching those flows run for the first time — routing documents, sending notifications, updating records automatically — was genuinely exciting. Here's what I learned about what Power Automate can actually do and why it deserves more attention.</p>
+
+  <h2>What Is Power Automate?</h2>
+  <p>Power Automate (previously called Microsoft Flow) is a <strong>no-code / low-code automation platform</strong> built into Microsoft 365. It lets you create automated workflows — called <em>flows</em> — that connect apps and services, respond to events, and perform actions without any human involvement.</p>
+  <p>Think of it as a programmable connector between every Microsoft tool — SharePoint, Teams, Outlook, Dynamics 365, Excel, Forms — and hundreds of external services like Salesforce, Slack, Twitter, and Google Workspace.</p>
+
+  <h2>The Three Types of Flows</h2>
+  <ul>
+    <li><strong>Automated flows</strong> — triggered by an event. "When a file is uploaded to this SharePoint library, send an approval email."</li>
+    <li><strong>Scheduled flows</strong> — triggered on a timer. "Every Monday at 08:00, generate a report and email it to the team."</li>
+    <li><strong>Instant flows</strong> — triggered manually by a button click, from Teams, SharePoint, or the mobile app.</li>
+  </ul>
+
+  <h2>Real Workflows I Built at Landis+Gyr</h2>
+  <p>Here are three actual flows I designed and deployed during my internship:</p>
+
+  <div class="use-case">
+    <div class="use-case-tag">Document Approval</div>
+    <div class="use-case-title">Automated Document Approval Routing</div>
+    <p><strong>Problem:</strong> Client service documents were being emailed back and forth for approval — no audit trail, frequent delays, version confusion.<br/><strong>Flow:</strong> When a document is uploaded to a specific SharePoint library → send approval request to manager via Teams → if approved, move to "Approved" folder and notify the requester → if rejected, notify with comments → log all decisions to a SharePoint list for audit.</p>
+  </div>
+
+  <div class="use-case">
+    <div class="use-case-tag">Notification</div>
+    <div class="use-case-title">New Client Account Alert</div>
+    <p><strong>Problem:</strong> When new accounts were added to Dynamics 365, relevant team members only found out hours later during manual check-ins.<br/><strong>Flow:</strong> When a new account record is created in Dynamics 365 → extract key fields → post a formatted notification card to the relevant Teams channel in real time.</p>
+  </div>
+
+  <div class="use-case">
+    <div class="use-case-tag">Scheduled Report</div>
+    <div class="use-case-title">Weekly Status Report Automation</div>
+    <p><strong>Problem:</strong> A team member spent 45 minutes every Friday manually compiling a status report from a SharePoint list into an email.<br/><strong>Flow:</strong> Every Friday at 16:00 → query the SharePoint list → format the data into an HTML table → send a formatted email to the distribution list automatically.</p>
+  </div>
+
+  <h2>Why Companies Underuse It</h2>
+  <p>In my experience, there are three main reasons Power Automate sits unused:</p>
+  <ol>
+    <li><strong>Nobody knows it exists.</strong> It's buried in the M365 app launcher and never gets introduced during onboarding.</li>
+    <li><strong>IT teams don't have time to build flows for every department.</strong> The value comes from empowering non-technical staff to build their own — but most companies don't provide training.</li>
+    <li><strong>Fear of breaking things.</strong> People worry that automating a process will cause errors. This is solvable with proper testing in a dev environment first.</li>
+  </ol>
+
+  <div class="callout callout-tip">
+    <div class="callout-title">✅ Where to Start</div>
+    <p>Find the most repetitive manual task in your team — something someone does the same way every week. That's your first automation candidate. Start simple: one trigger, one or two actions. Build confidence before tackling complex multi-step approval flows.</p>
+  </div>
+
+  <h2>Power Automate vs Writing Code</h2>
+  <p>As a developer, I sometimes get asked: "Why not just write a script?" Fair question. Here's how I think about it:</p>
+  <ul>
+    <li><strong>Use Power Automate</strong> when the workflow involves Microsoft 365 services, needs to be maintained by non-developers, or needs to be built quickly.</li>
+    <li><strong>Write code</strong> when you need complex logic, high-volume data processing, or integrations that Power Automate connectors don't support well.</li>
+    <li><strong>Combine both</strong> — Power Automate can call Azure Functions or custom APIs, so you can trigger custom code from a no-code flow. Best of both worlds.</li>
+  </ul>
+
+  <h2>The 2025 Outlook</h2>
+  <p>Microsoft has been investing heavily in Power Automate. The 2025 additions that matter most:</p>
+  <ul>
+    <li><strong>Copilot in Power Automate</strong> — describe what you want in plain English, Copilot generates the flow. Dramatically lowers the barrier to entry.</li>
+    <li><strong>Desktop flows</strong> — automate tasks on your Windows desktop, not just cloud services. Think: automating a legacy application that has no API.</li>
+    <li><strong>Process Mining</strong> — analyse your existing processes to identify automation opportunities automatically.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ One Thing to Watch</div>
+    <p>Power Automate flows run under the account of whoever created them. If that person leaves the company, flows stop working. Always use a <strong>service account</strong> for production flows — a shared account that doesn't belong to one individual.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>KEY TAKEAWAYS</h4>
+    <ul>
+      <li>Power Automate comes free with every M365 licence — most companies never use it properly</li>
+      <li>Three flow types: Automated (event-driven), Scheduled (timer), Instant (manual trigger)</li>
+      <li>Start with your team's most repetitive manual task</li>
+      <li>Use a service account for production flows — not your personal account</li>
+      <li>Copilot integration in 2025 makes building flows faster than ever</li>
+    </ul>
+  </div>
+
+  <p>Power Automate is one of the highest-ROI skills you can develop as an IT professional in a Microsoft shop. The investment is low — a few hours to learn — and the impact is immediate and visible. If you want to stand out in an IT role, start automating things nobody else is automating.</p>
+  <p>Questions about a specific automation scenario? Connect on <a href="https://linkedin.com/in/Mashudu-ramoba" style="color:var(--acid)">LinkedIn</a>.</p>
+
+<div class="share-row">
+  <span class="share-label">Share this post</span>
+  <button class="share-btn tw" onclick="sharePost('twitter')">𝕏 Twitter</button>
+  <button class="share-btn li" onclick="sharePost('linkedin')">💼 LinkedIn</button>
+  <button class="share-btn wa" onclick="sharePost('whatsapp')">💬 WhatsApp</button>
+  <button class="share-btn cp" onclick="sharePost('copy')">🔗 Copy Link</button>
+</div>
+</article>
+
+<div class="post-nav">
+  <a href="post-ecommerce-breakdown.html" class="pnl"><span class="pnl-label">← Previous</span><span class="pnl-title">How I Built a Full E-Commerce Site with React.js</span></a>
+  <a href="post-az900-journey.html" class="pnl" style="text-align:right"><span class="pnl-label">Next →</span><span class="pnl-title">How I Passed Azure AZ-900 in 3 Weeks</span></a>
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="theme-btn" onclick="toggleTheme()">🌙</button>
+<script src="main.js"></script>
+</body></html>

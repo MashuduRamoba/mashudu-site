@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact — Mashudu Ramoba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.contact-g{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start}
+
+.ct-desc{font-size:.9rem;color:var(--mist2);line-height:1.95;margin-bottom:2.5rem;max-width:400px}
+.ct-links{display:flex;flex-direction:column;gap:.65rem;margin-bottom:3rem}
+.clink{display:flex;align-items:center;justify-content:space-between;padding:.95rem 1.2rem;border:1px solid var(--border);border-radius:.8rem;font-size:.82rem;font-weight:500;transition:all .22s;letter-spacing:.02em;color:var(--paper)}
+.clink:hover{background:rgba(240,235,226,.05);border-color:var(--border2);transform:translateX(4px)}
+.clink-l{display:flex;align-items:center;gap:.75rem}
+.clink-ic{width:28px;height:28px;border-radius:.4rem;background:rgba(240,235,226,.07);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.cl-arr{font-size:.85rem;transition:transform .2s;color:var(--mist)}
+.clink:hover .cl-arr{transform:translateX(3px);color:var(--acid)}
+
+.avail-card{background:rgba(212,245,60,.06);border:1px solid rgba(212,245,60,.16);border-radius:1rem;padding:1.8rem;margin-top:2rem}
+.avail-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.avail-title{font-family:var(--fd);font-size:1.1rem;letter-spacing:.07em;color:var(--acid)}
+.avail-desc{font-size:.82rem;color:var(--mist2);line-height:1.7}
+.avail-types{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.avail-tag{font-size:.63rem;padding:.28rem .75rem;border-radius:1rem;font-weight:600;letter-spacing:.08em}
+.at1{background:rgba(212,245,60,.12);color:var(--acid);border:1px solid rgba(212,245,60,.22)}
+.at2{background:rgba(59,191,252,.08);color:var(--sky);border:1px solid rgba(59,191,252,.16)}
+.at3{background:rgba(240,235,226,.06);color:var(--mist2);border:1px solid var(--border)}
+
+/* Form */
+.cform{background:var(--ink2);border:1px solid var(--border);border-radius:1.1rem;padding:2.5rem;display:flex;flex-direction:column;gap:1.1rem}
+.cform-title{font-family:var(--fd);font-size:1.4rem;letter-spacing:.07em;margin-bottom:.5rem}
+.cfg{display:flex;flex-direction:column;gap:.45rem}
+.cfg label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);font-weight:700}
+.cfg input,.cfg textarea,.cfg select{background:rgba(240,235,226,.04);border:1px solid var(--border);border-radius:.6rem;padding:.7rem 1rem;font-family:var(--fb);font-size:.88rem;color:var(--paper);outline:none;transition:border-color .2s,background .2s;width:100%}
+.cfg input:focus,.cfg textarea:focus,.cfg select:focus{border-color:var(--acid);background:rgba(212,245,60,.03)}
+.cfg input::placeholder,.cfg textarea::placeholder{color:rgba(240,235,226,.22)}
+.cfg textarea{resize:none;min-height:110px;line-height:1.7}
+.cfg select option{background:var(--ink2);color:var(--paper)}
+.cfg-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.cf-btn{background:var(--acid);color:var(--ink);font-family:var(--fb);font-size:.72rem;font-weight:700;padding:1rem 2rem;border-radius:2rem;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:.3rem}
+.cf-btn:hover{background:var(--acid2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,245,60,.3)}
+.cf-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.cf-spin{display:none;width:14px;height:14px;border:2px solid rgba(0,0,0,.2);border-top-color:var(--ink);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-success{display:none;background:rgba(52,168,83,.1);border:1px solid rgba(52,168,83,.25);border-radius:.8rem;padding:1.2rem 1.4rem;font-size:.85rem;color:#5fca7a;text-align:center}
+.form-success.show{display:block}
+
+@media(max-width:900px){.contact-g{grid-template-columns:1fr;gap:3rem}.cfg-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<div id="search-hint" style="position:fixed;bottom:5rem;right:2rem;z-index:600;display:flex;align-items:center;gap:.5rem;background:var(--ink2);border:1px solid var(--border2);border-radius:2rem;padding:.4rem 1rem;font-size:.62rem;color:var(--mist);letter-spacing:.08em;cursor:pointer;transition:all .2s;animation:hintPop .5s 2s both cubic-bezier(.22,1,.36,1)" onclick="openSearch()"><span>🔍 Search</span><kbd style="background:var(--ink3);border:1px solid var(--border2);border-radius:.3rem;padding:.1rem .4rem;font-family:monospace;font-size:.65rem;color:var(--mist2)">Ctrl K</kbd></div>
+<nav id="nav">
+  <a href="index.html" class="nl"><div class="nl-badge">MR</div><div class="nl-text"><span class="nl-name">Mashudu Ramoba</span><span class="nl-role">Software Developer</span></div></a>
+  <div class="nl-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certs</a><a href="contact.html">Contact</a></div>
+  <div class="nl-r"><div class="nl-avail"><span class="pdot"></span>Available</div><button class="nl-hire" onclick="document.getElementById('cform').scrollIntoView({behavior:'smooth'})">Hire Me</button><button class="nl-ham" id="ham"><span></span><span></span><span></span></button></div>
+</nav>
+<div id="drawer"><a href="index.html" onclick="closeDrawer()">Home</a><a href="about.html" onclick="closeDrawer()">About</a><a href="experience.html" onclick="closeDrawer()">Experience</a><a href="projects.html" onclick="closeDrawer()">Projects</a><a href="blog.html" onclick="closeDrawer()">Blog</a><a href="certifications.html" onclick="closeDrawer()">Certifications</a><a href="contact.html" onclick="closeDrawer()">Contact</a></div>
+
+<div class="pg-header" data-title="CONTACT">
+  <p class="pg-kicker">Let's collaborate</p>
+  <h1 class="pg-title">Get In <em>Touch</em></h1>
+  <p class="pg-sub">Open to full-time roles, contract work, and freelance projects. Let's build something great together.</p>
+</div>
+
+<main class="main">
+  <div class="contact-g">
+    <!-- Left -->
+    <div class="rv">
+      <p class="ct-desc">Whether you need automation workflows built, a web application developed, or a technically sharp team member who understands both code and enterprise systems — I'm ready. Let's talk about what you're building.</p>
+      <div class="ct-links">
+        <a href="mailto:mashuduramoba365@gmail.com" class="clink"><div class="clink-l"><div class="clink-ic">✉</div><span>mashuduramoba365@gmail.com</span></div><span class="cl-arr">→</span></a>
+        <a href="tel:0605000163" class="clink"><div class="clink-l"><div class="clink-ic">📞</div><span>060 500 0163</span></div><span class="cl-arr">→</span></a>
+        <a href="https://github.com/MashuduRamoba" target="_blank" class="clink"><div class="clink-l"><div class="clink-ic">⌨</div><span>github.com/MashuduRamoba</span></div><span class="cl-arr">→</span></a>
+        <a href="https://linkedin.com/in/Mashudu-ramoba" target="_blank" class="clink"><div class="clink-l"><div class="clink-ic">💼</div><span>linkedin.com/in/Mashudu-ramoba</span></div><span class="cl-arr">→</span></a>
+        <a href="cv-print.html" target="_blank" class="clink"><div class="clink-l"><div class="clink-ic">📄</div><span>Download / Print CV</span></div><span class="cl-arr">→</span></a>
+      </div>
+      <div class="avail-card">
+        <div class="avail-top"><span class="pdot"></span><span class="avail-title">Currently Available</span></div>
+        <p class="avail-desc">Open to new opportunities starting immediately. Based in Midrand, Gauteng — open to remote and hybrid work.</p>
+        <div class="avail-types">
+          <span class="avail-tag at1">Full-time Employment</span>
+          <span class="avail-tag at2">Contract / Freelance</span>
+          <span class="avail-tag at3">Remote · Hybrid · On-site</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="rv d2">
+      <form class="cform" id="cform" onsubmit="submitForm(event)">
+        <div class="cform-title">Send a Message</div>
+        <div class="cfg-row">
+          <div class="cfg"><label>Name</label><input type="text" placeholder="Your full name" required/></div>
+          <div class="cfg"><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
+        </div>
+        <div class="cfg">
+          <label>Enquiry Type</label>
+          <select>
+            <option value="" disabled selected>Select a type…</option>
+            <option>Job Opportunity</option>
+            <option>Freelance / Contract Project</option>
+            <option>Collaboration</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="cfg"><label>Subject</label><input type="text" placeholder="What's this about?"/></div>
+        <div class="cfg"><label>Message</label><textarea rows="5" placeholder="Tell me about what you're building, the role, or what you need…" required></textarea></div>
+        <div class="form-success" id="form-success">✓ Message sent! I'll get back to you within 24 hours.</div>
+        <button type="submit" class="cf-btn" id="cfbtn">
+          <span id="cfbtn-txt">Send Message</span>
+          <span>→</span>
+          <span class="cf-spin" id="cfbtn-spin"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="ft-top"><div class="ft-brand"><div class="ft-logo">MR.</div><p class="ft-tagline">Software Developer based in Midrand, Gauteng.</p><div class="ft-social"><a href="https://github.com/MashuduRamoba" target="_blank" class="ft-soc">⌨</a><a href="https://linkedin.com/in/Mashudu-ramoba" target="_blank" class="ft-soc">💼</a><a href="mailto:mashuduramoba365@gmail.com" class="ft-soc">✉</a></div></div><div class="ft-links"><div class="ft-nav-group"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a></div><div class="ft-nav-group"><h4>Work</h4><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certifications</a><a href="contact.html">Contact</a></div></div></div>
+  <div class="ft-bottom"><span class="ft-copy">© 2025 Mashudu Ramoba · Midrand, Gauteng</span><span class="ft-status"><span class="pdot"></span>Available for opportunities</span></div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="theme-btn" onclick="toggleTheme()">🌙</button>
+<script src="main.js"></script>
+<script>
+function submitForm(e){
+  e.preventDefault();
+  const btn=document.getElementById('cfbtn');
+  const txt=document.getElementById('cfbtn-txt');
+  const spin=document.getElementById('cfbtn-spin');
+  const success=document.getElementById('form-success');
+  btn.disabled=true;
+  txt.textContent='Sending';
+  spin.style.display='block';
+  setTimeout(()=>{
+    spin.style.display='none';
+    txt.textContent='Sent!';
+    success.classList.add('show');
+    setTimeout(()=>{
+      txt.textContent='Send Message';
+      btn.disabled=false;
+      success.classList.remove('show');
+      e.target.reset();
+    },4000);
+  },1500);
+}
+</script>
+</body></html>

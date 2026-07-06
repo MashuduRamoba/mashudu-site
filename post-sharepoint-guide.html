@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SharePoint Permissions Explained — Mashudu Ramoba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.post-hero{padding:calc(var(--nav-h) + 4rem) 4% 4rem;background:var(--ink2);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.post-hero::before{content:"SHAREPOINT";position:absolute;font-family:var(--fd);font-size:15vw;line-height:.9;color:var(--paper);opacity:.03;right:-2vw;bottom:-3vw;pointer-events:none;letter-spacing:.04em}
+.post-hero-inner{max-width:820px;position:relative;z-index:1}
+.post-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);font-weight:500;margin-bottom:2rem;transition:color .2s}
+.post-back:hover{color:var(--acid)}
+.post-hero-meta{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.post-cat{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .6rem;border-radius:1rem;background:rgba(212,245,60,.1);color:var(--acid);border:1px solid rgba(212,245,60,.2)}
+.post-date,.post-read-time{font-size:.62rem;color:var(--mist)}
+.post-hero-title{font-family:var(--fd);font-size:clamp(2rem,5vw,4rem);letter-spacing:.03em;line-height:.95;color:var(--paper);margin-bottom:1.2rem}
+.post-hero-excerpt{font-size:.95rem;color:var(--mist2);line-height:1.85;max-width:680px}
+.post-author-row{display:flex;align-items:center;gap:.8rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.post-avatar{width:40px;height:40px;border-radius:50%;background:var(--acid);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.9rem;flex-shrink:0}
+.author-name{font-size:.82rem;font-weight:600;color:var(--paper)}
+.author-meta{font-size:.65rem;color:var(--mist);letter-spacing:.06em}
+.post-article{max-width:760px;margin:0 auto;padding:5rem 4%}
+.post-article h2{font-family:var(--fd);font-size:1.8rem;letter-spacing:.04em;color:var(--paper);margin:3rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.post-article h3{font-family:var(--fd);font-size:1.3rem;letter-spacing:.04em;color:var(--paper);margin:2rem 0 .8rem}
+.post-article p{font-size:.9rem;color:var(--mist2);line-height:1.92;margin-bottom:1.2rem}
+.post-article p strong{color:var(--paper);font-weight:600}
+.post-article ul,.post-article ol{margin:0 0 1.2rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.post-article li{font-size:.88rem;color:var(--mist2);line-height:1.8}
+.post-article li strong{color:var(--paper);font-weight:600}
+.post-article pre{background:var(--ink3);border:1px solid var(--border);border-left:3px solid var(--acid);border-radius:.6rem;padding:1.5rem;overflow-x:auto;margin:1.5rem 0;font-family:'Courier New',monospace;font-size:.78rem;line-height:1.7;color:#a8d8a8}
+.post-article code{background:rgba(212,245,60,.08);color:var(--acid);font-family:'Courier New',monospace;font-size:.82em;padding:.15rem .4rem;border-radius:.3rem}
+.post-article pre code{background:transparent;color:#a8d8a8;padding:0}
+.callout{border-radius:.7rem;padding:1.2rem 1.5rem;margin:1.5rem 0;border-left:3px solid}
+.callout-tip{background:rgba(212,245,60,.06);border-color:var(--acid)}
+.callout-warn{background:rgba(245,158,11,.06);border-color:#f59e0b}
+.callout-info{background:rgba(59,191,252,.06);border-color:#3bbffc}
+.callout-title{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.callout-tip .callout-title{color:var(--acid)}
+.callout-warn .callout-title{color:#f59e0b}
+.callout-info .callout-title{color:#3bbffc}
+.callout p{margin-bottom:0;font-size:.85rem}
+.key-takeaway{background:linear-gradient(135deg,rgba(212,245,60,.06),rgba(212,245,60,.02));border:1px solid rgba(212,245,60,.15);border-radius:1rem;padding:2rem;margin:2.5rem 0}
+.key-takeaway h4{font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--acid);margin-bottom:1rem}
+.key-takeaway ul{margin-left:0;list-style:none}
+.key-takeaway li{padding:.4rem 0 .4rem 1.2rem;position:relative;font-size:.85rem;color:var(--mist2);border-bottom:1px solid rgba(212,245,60,.06)}
+.key-takeaway li:last-child{border-bottom:none}
+.key-takeaway li::before{content:'→';position:absolute;left:0;color:var(--acid);font-size:.75rem;top:.5rem}
+.post-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 4%;border-top:1px solid var(--border);background:var(--ink2);flex-wrap:wrap;gap:1rem}
+.pnl{display:flex;flex-direction:column;gap:.4rem;max-width:280px}
+.pnl-label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.pnl-title{font-family:var(--fd);font-size:1rem;letter-spacing:.04em;color:var(--paper);transition:color .2s}
+.pnl:hover .pnl-title{color:var(--acid)}
+</style>
+</head>
+<body>
+<div id="reading-bar"></div>
+<div id="scroll-progress"></div>
+<nav id="nav">
+  <a href="index.html" class="nl"><div class="nl-badge">MR</div><div class="nl-text"><span class="nl-name">Mashudu Ramoba</span><span class="nl-role">Software Developer</span></div></a>
+  <div class="nl-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certs</a><a href="contact.html">Contact</a></div>
+  <div class="nl-r"><div class="nl-avail"><span class="pdot"></span>Available</div><button class="nl-hire" onclick="location.href='contact.html'">Hire Me</button><button class="nl-ham" id="ham"><span></span><span></span><span></span></button></div>
+</nav>
+<div id="drawer"><a href="index.html" onclick="closeDrawer()">Home</a><a href="about.html" onclick="closeDrawer()">About</a><a href="experience.html" onclick="closeDrawer()">Experience</a><a href="projects.html" onclick="closeDrawer()">Projects</a><a href="blog.html" onclick="closeDrawer()">Blog</a><a href="certifications.html" onclick="closeDrawer()">Certifications</a><a href="contact.html" onclick="closeDrawer()">Contact</a></div>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <a href="blog.html" class="post-back">← Back to Blog</a>
+    <div class="post-hero-meta"><span class="post-cat">Tutorial</span><span class="post-date">15 January 2025</span><span class="post-read-time">· 8 min read</span></div>
+    <h1 class="post-hero-title">SharePoint Permissions Explained: A Practical Guide for IT Professionals</h1>
+    <p class="post-hero-excerpt">SharePoint permissions confuse a lot of people — even experienced IT teams. After spending months managing them at Landis+Gyr across EMEA, I broke down everything I learned into this practical guide.</p>
+    <div class="post-author-row"><div class="post-avatar">MR</div><div><div class="author-name">Mashudu Ramoba</div><div class="author-meta">IT Intern · Landis+Gyr EMEA · AZ-900 Certified</div></div></div>
+  </div>
+</div>
+
+<article class="post-article rv">
+  <p>When I started my internship at Landis+Gyr, one of my first major responsibilities was managing SharePoint environments across EMEA. I quickly learned that SharePoint permissions are one of those things that <strong>everyone assumes they understand</strong> — until something breaks.</p>
+  <p>A user can't access a file they need. A team's documents are visible to the wrong people. A site collection suddenly has 47 permission levels and nobody knows why. Sound familiar? This guide explains how SharePoint permissions actually work, and how to manage them properly.</p>
+
+  <h2>The Permission Hierarchy</h2>
+  <p>SharePoint permissions work in a <strong>top-down hierarchy</strong>. Understanding this is the foundation of everything else.</p>
+  <ul>
+    <li><strong>Site Collection</strong> — the top level. Permissions set here apply everywhere below unless overridden.</li>
+    <li><strong>Site (Subsite)</strong> — inherits from the site collection by default.</li>
+    <li><strong>Library / List</strong> — inherits from the site by default.</li>
+    <li><strong>Folder</strong> — inherits from the library by default.</li>
+    <li><strong>Item / File</strong> — inherits from the folder by default.</li>
+  </ul>
+  <p>The key word in every line above is <strong>"by default."</strong> You can break this inheritance at any level — and that's where things get complicated.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">💡 Key Concept</div>
+    <p>When permissions flow down unchanged, it's called <strong>inheritance</strong>. When you set different permissions on a specific item or library, it's called <strong>breaking inheritance</strong>. Broken inheritance is the #1 cause of permission confusion.</p>
+  </div>
+
+  <h2>The Three Default Permission Levels</h2>
+  <ul>
+    <li><strong>Full Control</strong> — can do everything including delete the site and manage permissions. Site Collection Admins have this.</li>
+    <li><strong>Edit / Contribute</strong> — can add, edit, and delete content. Most team members get this.</li>
+    <li><strong>Read</strong> — can view content but not change anything. Good for stakeholders and external reviewers.</li>
+  </ul>
+
+  <h2>SharePoint Groups vs Direct Permissions</h2>
+  <p>You can assign permissions to <strong>individual users</strong> or to <strong>SharePoint groups</strong>. Always use groups. Here's why:</p>
+  <ul>
+    <li>When a new team member joins, you add them to the group — they instantly get the right access everywhere.</li>
+    <li>When someone leaves, you remove them from the group — access revoked everywhere at once.</li>
+    <li>Direct user permissions become impossible to audit as the site grows.</li>
+  </ul>
+
+  <div class="callout callout-tip">
+    <div class="callout-title">✅ Best Practice</div>
+    <p>Every site should have three groups minimum: <strong>[SiteName] Owners</strong> (Full Control), <strong>[SiteName] Members</strong> (Edit), and <strong>[SiteName] Visitors</strong> (Read). These are created automatically when you create a site — use them.</p>
+  </div>
+
+  <h2>How I Used This at Landis+Gyr</h2>
+  <p>At Landis+Gyr, we had SharePoint sites shared across multiple EMEA regions. The challenge was ensuring <strong>each regional team could access their own documents</strong> but not others', while certain cross-regional documents remained accessible to everyone.</p>
+  <ol>
+    <li>Created region-specific SharePoint groups (e.g., <code>EMEA-North-Members</code>, <code>EMEA-South-Members</code>)</li>
+    <li>Set up separate document libraries per region</li>
+    <li>Broke inheritance on each regional library and assigned only the relevant group</li>
+    <li>Created a shared library that kept default site inheritance — accessible to all</li>
+    <li>Documented every permission change in a change log for audit purposes</li>
+  </ol>
+
+  <h2>Checking Permissions on Any Item</h2>
+  <pre>1. Navigate to the file or library
+2. Click the three dots (...) → Details
+3. Click "Manage Access"
+4. You'll see all groups and users with access
+5. Click "Advanced" for full permission details</pre>
+
+  <pre>Connect-PnPOnline -Url "https://yourcompany.sharepoint.com/sites/yoursite" -UseWebLogin
+
+# Get all unique permissions on a library
+Get-PnPListPermissions -Identity "Documents" | Format-Table -AutoSize</pre>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ Watch Out For</div>
+    <p><strong>Oversharing</strong> is the biggest SharePoint security risk. Check regularly that sensitive documents haven't been accidentally shared too broadly. Use the <strong>Access Review</strong> feature in SharePoint Admin Centre to automate this.</p>
+  </div>
+
+  <h2>Quick Reference: Common Permission Tasks</h2>
+  <ul>
+    <li><strong>Give someone access to one file:</strong> Right-click file → Share → enter email → set permission level</li>
+    <li><strong>Remove all access for a user:</strong> Site Settings → Site Permissions → Find user → Remove</li>
+    <li><strong>Make a library private:</strong> Library Settings → Permissions → Stop inheriting → Remove all → Add only who you want</li>
+    <li><strong>Check who has Full Control:</strong> Site Settings → Site Permissions → filter by Full Control</li>
+  </ul>
+
+  <div class="key-takeaway">
+    <h4>KEY TAKEAWAYS</h4>
+    <ul>
+      <li>Permissions flow top-down — site collection → site → library → folder → file</li>
+      <li>Always use SharePoint groups, never direct user permissions</li>
+      <li>Breaking inheritance is powerful but creates complexity — document it</li>
+      <li>Audit permissions regularly using the built-in tools or PowerShell</li>
+      <li>Oversharing is the #1 SharePoint security risk — review access quarterly</li>
+    </ul>
+  </div>
+
+  <p>SharePoint permissions seem complex at first but once you understand the hierarchy and the group model, managing them becomes straightforward. Have questions? Connect with me on <a href="https://linkedin.com/in/Mashudu-ramoba" style="color:var(--acid)">LinkedIn</a>.</p>
+<div class="share-row">
+  <span class="share-label">Share this post</span>
+  <button class="share-btn tw" onclick="sharePost('twitter')">𝕏 Twitter</button>
+  <button class="share-btn li" onclick="sharePost('linkedin')">💼 LinkedIn</button>
+  <button class="share-btn wa" onclick="sharePost('whatsapp')">💬 WhatsApp</button>
+  <button class="share-btn cp" onclick="sharePost('copy')">🔗 Copy Link</button>
+</div>
+</article>
+
+<div class="post-nav">
+  <a href="blog.html" class="pnl"><span class="pnl-label">← All Posts</span><span class="pnl-title">Back to Blog</span></a>
+  <a href="post-it-intern-lessons.html" class="pnl" style="text-align:right"><span class="pnl-label">Next Post →</span><span class="pnl-title">5 Things Nobody Tells You About Your First IT Internship</span></a>
+</div>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="theme-btn" onclick="toggleTheme()">🌙</button>
+<script src="main.js"></script>
+</body></html>

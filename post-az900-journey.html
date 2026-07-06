@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>How I Passed Azure AZ-900 in 3 Weeks While Working Full Time — Mashudu Ramoba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.post-hero{padding:calc(var(--nav-h) + 4rem) 4% 4rem;background:var(--ink2);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.post-hero::before{content:"AZ900";position:absolute;font-family:var(--fd);font-size:22vw;line-height:.9;color:var(--paper);opacity:.03;right:-2vw;bottom:-3vw;pointer-events:none;letter-spacing:.04em}
+.post-hero-inner{max-width:820px;position:relative;z-index:1}
+.post-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);font-weight:500;margin-bottom:2rem;transition:color .2s}
+.post-back:hover{color:var(--acid)}
+.post-hero-meta{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.post-cat{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .6rem;border-radius:1rem;background:rgba(200,169,110,.08);color:var(--gold);border:1px solid rgba(200,169,110,.15)}
+.post-date,.post-read-time{font-size:.62rem;color:var(--mist)}
+.post-hero-title{font-family:var(--fd);font-size:clamp(2rem,5vw,4rem);letter-spacing:.03em;line-height:.95;color:var(--paper);margin-bottom:1.2rem}
+.post-hero-excerpt{font-size:.95rem;color:var(--mist2);line-height:1.85;max-width:680px}
+.post-author-row{display:flex;align-items:center;gap:.8rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.post-avatar{width:40px;height:40px;border-radius:50%;background:var(--acid);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.9rem;flex-shrink:0}
+.author-name{font-size:.82rem;font-weight:600;color:var(--paper)}
+.author-meta{font-size:.65rem;color:var(--mist);letter-spacing:.06em}
+.post-article{max-width:760px;margin:0 auto;padding:5rem 4%}
+.post-article h2{font-family:var(--fd);font-size:1.8rem;letter-spacing:.04em;color:var(--paper);margin:3rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.post-article h3{font-family:var(--fd);font-size:1.3rem;letter-spacing:.04em;color:var(--paper);margin:2rem 0 .8rem}
+.post-article p{font-size:.9rem;color:var(--mist2);line-height:1.92;margin-bottom:1.2rem}
+.post-article p strong{color:var(--paper);font-weight:600}
+.post-article ul,.post-article ol{margin:0 0 1.2rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.post-article li{font-size:.88rem;color:var(--mist2);line-height:1.8}
+.post-article li strong{color:var(--paper);font-weight:600}
+.callout{border-radius:.7rem;padding:1.2rem 1.5rem;margin:1.5rem 0;border-left:3px solid}
+.callout-tip{background:rgba(212,245,60,.06);border-color:var(--acid)}
+.callout-warn{background:rgba(245,158,11,.06);border-color:#f59e0b}
+.callout-info{background:rgba(59,191,252,.06);border-color:#3bbffc}
+.callout-title{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.callout-tip .callout-title{color:var(--acid)}
+.callout-warn .callout-title{color:#f59e0b}
+.callout-info .callout-title{color:#3bbffc}
+.callout p{margin-bottom:0;font-size:.85rem}
+.week-block{background:var(--ink3);border:1px solid var(--border);border-radius:.8rem;padding:1.5rem;margin:1rem 0}
+.week-title{font-family:var(--fd);font-size:1.1rem;letter-spacing:.06em;color:var(--acid);margin-bottom:.6rem}
+.week-block p{font-size:.84rem;color:var(--mist2);margin-bottom:0;line-height:1.75}
+.resource-list{display:flex;flex-direction:column;gap:.6rem;margin:1rem 0}
+.resource{display:flex;align-items:flex-start;gap:.8rem;padding:.8rem;background:var(--ink3);border:1px solid var(--border);border-radius:.6rem}
+.resource-icon{font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
+.resource-body{}
+.resource-name{font-size:.82rem;font-weight:600;color:var(--paper);margin-bottom:.2rem}
+.resource-desc{font-size:.76rem;color:var(--mist);line-height:1.5}
+.resource-tag{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:1rem;background:rgba(212,245,60,.1);color:var(--acid);border:1px solid rgba(212,245,60,.2);margin-left:.5rem}
+.key-takeaway{background:linear-gradient(135deg,rgba(212,245,60,.06),rgba(212,245,60,.02));border:1px solid rgba(212,245,60,.15);border-radius:1rem;padding:2rem;margin:2.5rem 0}
+.key-takeaway h4{font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--acid);margin-bottom:1rem}
+.key-takeaway ul{margin-left:0;list-style:none}
+.key-takeaway li{padding:.4rem 0 .4rem 1.2rem;position:relative;font-size:.85rem;color:var(--mist2);border-bottom:1px solid rgba(212,245,60,.06)}
+.key-takeaway li:last-child{border-bottom:none}
+.key-takeaway li::before{content:'→';position:absolute;left:0;color:var(--acid);font-size:.75rem;top:.5rem}
+.post-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 4%;border-top:1px solid var(--border);background:var(--ink2);flex-wrap:wrap;gap:1rem}
+.pnl{display:flex;flex-direction:column;gap:.4rem;max-width:280px}
+.pnl-label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.pnl-title{font-family:var(--fd);font-size:1rem;letter-spacing:.04em;color:var(--paper);transition:color .2s}
+.pnl:hover .pnl-title{color:var(--acid)}
+</style>
+</head>
+<body>
+<div id="reading-bar"></div>
+<div id="scroll-progress"></div>
+<nav id="nav">
+  <a href="index.html" class="nl"><div class="nl-badge">MR</div><div class="nl-text"><span class="nl-name">Mashudu Ramoba</span><span class="nl-role">Software Developer</span></div></a>
+  <div class="nl-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certs</a><a href="contact.html">Contact</a></div>
+  <div class="nl-r"><div class="nl-avail"><span class="pdot"></span>Available</div><button class="nl-hire" onclick="location.href='contact.html'">Hire Me</button><button class="nl-ham" id="ham"><span></span><span></span><span></span></button></div>
+</nav>
+<div id="drawer"><a href="index.html" onclick="closeDrawer()">Home</a><a href="about.html" onclick="closeDrawer()">About</a><a href="experience.html" onclick="closeDrawer()">Experience</a><a href="projects.html" onclick="closeDrawer()">Projects</a><a href="blog.html" onclick="closeDrawer()">Blog</a><a href="certifications.html" onclick="closeDrawer()">Certifications</a><a href="contact.html" onclick="closeDrawer()">Contact</a></div>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <a href="blog.html" class="post-back">← Back to Blog</a>
+    <div class="post-hero-meta">
+      <span class="post-cat">Personal</span>
+      <span class="post-date">22 February 2025</span>
+      <span class="post-read-time">· 5 min read</span>
+    </div>
+    <h1 class="post-hero-title">How I Passed Azure AZ-900 in 3 Weeks While Working Full Time</h1>
+    <p class="post-hero-excerpt">The AZ-900 is labelled "entry level" but it still took real preparation. Here's my exact study plan, the free resources that actually helped, and what to focus on if you're writing the exam soon.</p>
+    <div class="post-author-row">
+      <div class="post-avatar">MR</div>
+      <div><div class="author-name">Mashudu Ramoba</div><div class="author-meta">Microsoft Azure Fundamentals (AZ-900) · Certified 2024</div></div>
+    </div>
+  </div>
+</div>
+
+<article class="post-article rv">
+
+  <p>When I decided to get the AZ-900, I was already working full time as an IT intern at Landis+Gyr. I had evenings and weekends — that's it. Three weeks later I walked out of the exam centre with a pass. Here's exactly how I did it.</p>
+
+  <h2>What the AZ-900 Actually Covers</h2>
+  <p>The exam has four main domains — and they're not equally weighted. Focus your time accordingly:</p>
+  <ul>
+    <li><strong>Describe cloud concepts (25–30%)</strong> — IaaS vs PaaS vs SaaS, shared responsibility model, high availability, scalability, elasticity, CapEx vs OpEx.</li>
+    <li><strong>Describe Azure architecture and services (35–40%)</strong> — core services: Compute, Networking, Storage, Databases. Azure regions, availability zones, resource groups.</li>
+    <li><strong>Describe Azure management and governance (30–35%)</strong> — Azure Cost Management, Azure Policy, RBAC, Microsoft Defender for Cloud, Azure Monitor.</li>
+  </ul>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">⚠️ Don't Make This Mistake</div>
+    <p>Most people over-study cloud concepts (the easy section) and under-study management and governance (the hardest section). Flip that ratio. Governance and security questions will make or break your score.</p>
+  </div>
+
+  <h2>My 3-Week Study Plan</h2>
+
+  <div class="week-block">
+    <div class="week-title">Week 1 — Foundation</div>
+    <p><strong>Goal:</strong> Understand cloud fundamentals and Azure's core architecture.<br/>
+    <strong>Daily:</strong> 1 hour on Microsoft Learn — work through the AZ-900 learning path from start to finish. Don't skip anything, even if it seems obvious.<br/>
+    <strong>End of week:</strong> Take a free practice test (MeasureUp or Whizlabs). Don't worry about your score — identify which domains you're weakest in.</p>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title">Week 2 — Services Deep Dive</div>
+    <p><strong>Goal:</strong> Learn every Azure service mentioned in the exam outline.<br/>
+    <strong>Daily:</strong> 1 hour on John Savill's AZ-900 YouTube series (free, excellent). One video per evening. Take notes in your own words — not copy-paste.<br/>
+    <strong>Focus areas:</strong> Azure Virtual Machines, Azure App Service, Azure Functions, Azure Storage types (Blob, File, Queue, Table), Azure SQL, Cosmos DB, Virtual Networks, VPN Gateway, ExpressRoute.</p>
+  </div>
+
+  <div class="week-block">
+    <div class="week-title">Week 3 — Governance & Practice Tests</div>
+    <p><strong>Goal:</strong> Nail governance/security and do timed practice exams.<br/>
+    <strong>Daily:</strong> 30 min reviewing governance topics + 30 min practice questions.<br/>
+    <strong>Focus areas:</strong> Azure Policy, Blueprints, RBAC, resource locks, tags, Cost Management + Billing, Azure Advisor, Service Health, Monitor, Log Analytics.<br/>
+    <strong>Days 5–7:</strong> Do full timed practice exams (45 questions, 45 minutes). Aim for 80%+ before booking the real exam.</p>
+  </div>
+
+  <h2>Free Resources That Actually Helped</h2>
+  <div class="resource-list">
+    <div class="resource">
+      <span class="resource-icon">📘</span>
+      <div class="resource-body">
+        <div class="resource-name">Microsoft Learn — AZ-900 Learning Path <span class="resource-tag">Free</span></div>
+        <div class="resource-desc">The official material. Directly maps to exam objectives. Do all of it. learn.microsoft.com/en-us/certifications/azure-fundamentals/</div>
+      </div>
+    </div>
+    <div class="resource">
+      <span class="resource-icon">▶️</span>
+      <div class="resource-body">
+        <div class="resource-name">John Savill's AZ-900 Study Cram (YouTube) <span class="resource-tag">Free</span></div>
+        <div class="resource-desc">Single 3-hour video that covers the entire exam. Watch it in Week 2 after you have the foundation. Incredibly thorough.</div>
+      </div>
+    </div>
+    <div class="resource">
+      <span class="resource-icon">🧪</span>
+      <div class="resource-body">
+        <div class="resource-name">MeasureUp Practice Tests <span class="resource-tag">Paid — Worth It</span></div>
+        <div class="resource-desc">The closest simulation to the real exam. If you're scoring 80%+ here consistently, you're ready. About R400 for access.</div>
+      </div>
+    </div>
+    <div class="resource">
+      <span class="resource-icon">📝</span>
+      <div class="resource-body">
+        <div class="resource-name">ExamTopics AZ-900 Questions <span class="resource-tag">Free</span></div>
+        <div class="resource-desc">Community-sourced practice questions. Good for extra drilling but verify answers — some are outdated. Use as supplementary only.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>On Exam Day</h2>
+  <ul>
+    <li><strong>Read every question twice.</strong> Microsoft uses very precise language. "Which service would you use to..." vs "Which service is designed for..." have different answers.</li>
+    <li><strong>Flag and return</strong> to any question you're unsure about. Don't spend more than 90 seconds on one question.</li>
+    <li><strong>Eliminate wrong answers first.</strong> Usually two options are clearly wrong — narrow it to two then choose.</li>
+    <li><strong>Trust your preparation.</strong> If you've done the Microsoft Learn path and practice tests, you know this material. Don't second-guess yourself.</li>
+  </ul>
+
+  <div class="callout callout-tip">
+    <div class="callout-title">✅ Pro Tip</div>
+    <p>Book your exam date <em>before</em> you finish studying. Having a real deadline forces you to study consistently. Without a booking date, "I'll do it when I'm ready" turns into never.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <h4>KEY TAKEAWAYS</h4>
+    <ul>
+      <li>3 weeks is enough — 1 hour per day of focused study is all you need</li>
+      <li>Spend more time on governance/security than cloud concepts</li>
+      <li>Microsoft Learn + John Savill YouTube + MeasureUp practice tests = everything you need</li>
+      <li>Book your exam date before you feel "ready" — it forces accountability</li>
+      <li>Score 80%+ consistently on practice tests before writing the real exam</li>
+    </ul>
+  </div>
+
+  <p>The AZ-900 is a great starting point for a cloud career — but don't stop there. My next target is the <strong>AZ-104 (Azure Administrator)</strong>. If you're preparing for AZ-900 right now and want to compare notes, find me on <a href="https://linkedin.com/in/Mashudu-ramoba" style="color:var(--acid)">LinkedIn</a>.</p>
+
+<div class="share-row">
+  <span class="share-label">Share this post</span>
+  <button class="share-btn tw" onclick="sharePost('twitter')">𝕏 Twitter</button>
+  <button class="share-btn li" onclick="sharePost('linkedin')">💼 LinkedIn</button>
+  <button class="share-btn wa" onclick="sharePost('whatsapp')">💬 WhatsApp</button>
+  <button class="share-btn cp" onclick="sharePost('copy')">🔗 Copy Link</button>
+</div>
+</article>
+
+<div class="post-nav">
+  <a href="post-power-automate-2025.html" class="pnl"><span class="pnl-label">← Previous</span><span class="pnl-title">Why Power Automate is the Most Underrated Tool in M365</span></a>
+  <a href="post-python-automation.html" class="pnl" style="text-align:right"><span class="pnl-label">Next →</span><span class="pnl-title">Python Automation for Beginners</span></a>
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="theme-btn" onclick="toggleTheme()">🌙</button>
+<script src="main.js"></script>
+</body></html>

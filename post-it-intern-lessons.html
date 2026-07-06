@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>5 Things Nobody Tells You About Your First IT Internship — Mashudu Ramoba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.post-hero{padding:calc(var(--nav-h) + 4rem) 4% 4rem;background:var(--ink2);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.post-hero::before{content:"INTERN";position:absolute;font-family:var(--fd);font-size:22vw;line-height:.9;color:var(--paper);opacity:.03;right:-2vw;bottom:-3vw;pointer-events:none;letter-spacing:.04em}
+.post-hero-inner{max-width:820px;position:relative;z-index:1}
+.post-back{display:inline-flex;align-items:center;gap:.5rem;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);font-weight:500;margin-bottom:2rem;transition:color .2s}
+.post-back:hover{color:var(--acid)}
+.post-hero-meta{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.post-cat{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .6rem;border-radius:1rem;background:rgba(59,191,252,.08);color:#3bbffc;border:1px solid rgba(59,191,252,.15)}
+.post-date,.post-read-time{font-size:.62rem;color:var(--mist)}
+.post-hero-title{font-family:var(--fd);font-size:clamp(2rem,5vw,4rem);letter-spacing:.03em;line-height:.95;color:var(--paper);margin-bottom:1.2rem}
+.post-hero-excerpt{font-size:.95rem;color:var(--mist2);line-height:1.85;max-width:680px}
+.post-author-row{display:flex;align-items:center;gap:.8rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.post-avatar{width:40px;height:40px;border-radius:50%;background:var(--acid);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.9rem;flex-shrink:0}
+.author-name{font-size:.82rem;font-weight:600;color:var(--paper)}
+.author-meta{font-size:.65rem;color:var(--mist);letter-spacing:.06em}
+.post-article{max-width:760px;margin:0 auto;padding:5rem 4%}
+.post-article h2{font-family:var(--fd);font-size:1.8rem;letter-spacing:.04em;color:var(--paper);margin:3rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.post-article p{font-size:.9rem;color:var(--mist2);line-height:1.92;margin-bottom:1.2rem}
+.post-article p strong{color:var(--paper);font-weight:600}
+.post-article ul,.post-article ol{margin:0 0 1.2rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.post-article li{font-size:.88rem;color:var(--mist2);line-height:1.8}
+.post-article li strong{color:var(--paper);font-weight:600}
+.callout{border-radius:.7rem;padding:1.2rem 1.5rem;margin:1.5rem 0;border-left:3px solid}
+.callout-tip{background:rgba(212,245,60,.06);border-color:var(--acid)}
+.callout-info{background:rgba(59,191,252,.06);border-color:#3bbffc}
+.callout-title{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.callout-tip .callout-title{color:var(--acid)}
+.callout-info .callout-title{color:#3bbffc}
+.callout p{margin-bottom:0;font-size:.85rem}
+.lesson-num{font-family:var(--fd);font-size:4rem;color:rgba(212,245,60,.12);line-height:1;margin-bottom:-.5rem}
+.key-takeaway{background:linear-gradient(135deg,rgba(212,245,60,.06),rgba(212,245,60,.02));border:1px solid rgba(212,245,60,.15);border-radius:1rem;padding:2rem;margin:2.5rem 0}
+.key-takeaway h4{font-family:var(--fd);font-size:1rem;letter-spacing:.1em;color:var(--acid);margin-bottom:1rem}
+.key-takeaway ul{margin-left:0;list-style:none}
+.key-takeaway li{padding:.4rem 0 .4rem 1.2rem;position:relative;font-size:.85rem;color:var(--mist2);border-bottom:1px solid rgba(212,245,60,.06)}
+.key-takeaway li:last-child{border-bottom:none}
+.key-takeaway li::before{content:'→';position:absolute;left:0;color:var(--acid);font-size:.75rem;top:.5rem}
+.post-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 4%;border-top:1px solid var(--border);background:var(--ink2);flex-wrap:wrap;gap:1rem}
+.pnl{display:flex;flex-direction:column;gap:.4rem;max-width:280px}
+.pnl-label{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.pnl-title{font-family:var(--fd);font-size:1rem;letter-spacing:.04em;color:var(--paper);transition:color .2s}
+.pnl:hover .pnl-title{color:var(--acid)}
+</style>
+</head>
+<body>
+<div id="reading-bar"></div>
+<div id="scroll-progress"></div>
+<nav id="nav">
+  <a href="index.html" class="nl"><div class="nl-badge">MR</div><div class="nl-text"><span class="nl-name">Mashudu Ramoba</span><span class="nl-role">Software Developer</span></div></a>
+  <div class="nl-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certs</a><a href="contact.html">Contact</a></div>
+  <div class="nl-r"><div class="nl-avail"><span class="pdot"></span>Available</div><button class="nl-hire" onclick="location.href='contact.html'">Hire Me</button><button class="nl-ham" id="ham"><span></span><span></span><span></span></button></div>
+</nav>
+<div id="drawer"><a href="index.html" onclick="closeDrawer()">Home</a><a href="about.html" onclick="closeDrawer()">About</a><a href="experience.html" onclick="closeDrawer()">Experience</a><a href="projects.html" onclick="closeDrawer()">Projects</a><a href="blog.html" onclick="closeDrawer()">Blog</a><a href="certifications.html" onclick="closeDrawer()">Certifications</a><a href="contact.html" onclick="closeDrawer()">Contact</a></div>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <a href="blog.html" class="post-back">← Back to Blog</a>
+    <div class="post-hero-meta"><span class="post-cat">Career</span><span class="post-date">28 January 2025</span><span class="post-read-time">· 6 min read</span></div>
+    <h1 class="post-hero-title">5 Things Nobody Tells You About Your First IT Internship</h1>
+    <p class="post-hero-excerpt">Starting my internship at Landis+Gyr, I thought I was ready. I had the diploma, the certifications, the GitHub repos. Here's what actually surprised me — and what I wish someone had told me before day one.</p>
+    <div class="post-author-row"><div class="post-avatar">MR</div><div><div class="author-name">Mashudu Ramoba</div><div class="author-meta">IT Intern · Landis+Gyr EMEA · TUT Graduate</div></div></div>
+  </div>
+</div>
+
+<article class="post-article rv">
+
+  <p>I spent years preparing for my first IT role. I studied hard at TUT, earned certifications, built projects, and practised coding problems. When I finally started my internship at Landis+Gyr — a global energy technology company with teams across EMEA — I thought I was ready for anything.</p>
+  <p>I was not fully ready. Not because I lacked technical skills, but because <strong>nobody had told me what the job actually felt like</strong>. Here are the five things I wish I had known before day one.</p>
+
+  <h2>1. The Tech is the Easy Part</h2>
+  <div class="lesson-num">01</div>
+  <p>I expected the hardest part of my internship to be the technical challenges — complex code, unfamiliar systems, enterprise software I'd never touched. And yes, there was a learning curve with SharePoint, Power Automate, and Dynamics 365.</p>
+  <p>But the <strong>real challenge was the soft skills</strong>. Understanding what stakeholders actually needed (often different from what they said they needed). Communicating clearly in writing to colleagues in different countries and time zones. Asking the right questions without looking like you don't know anything.</p>
+  <p>My advice: <strong>invest as much time in communication skills as in technical skills.</strong> Write clearly. Listen actively. Ask questions. These matter more than you think.</p>
+
+  <div class="callout callout-tip">
+    <div class="callout-title">✅ Practical Tip</div>
+    <p>When you're given a task, repeat it back in your own words before starting: <em>"Just to confirm — you need me to do X, and the output should be Y by Friday?"</em> This one habit prevents most miscommunications.</p>
+  </div>
+
+  <h2>2. You Will Be Given Real Responsibility Faster Than You Expect</h2>
+  <div class="lesson-num">02</div>
+  <p>I assumed I'd spend my first few months shadowing people and doing minor tasks. Within weeks, I was leading the migration of the company's production blog from HubSpot to WordPress — a real system, used by real clients, in a real EMEA environment.</p>
+  <p>This was both exciting and terrifying. The lesson: <strong>internships at good companies are not make-work.</strong> Your work will matter. Treat every task like it matters, because it does.</p>
+  <p>Don't wait to be given responsibility. Show initiative. If you notice something that could be improved, flag it. If you finish a task early, ask what else you can help with. That attitude gets noticed very quickly.</p>
+
+  <h2>3. Documentation Is a Superpower</h2>
+  <div class="lesson-num">03</div>
+  <p>I used to think documentation was the boring part of IT. Write the code, build the thing, fix the problem — who has time to write it all down? My internship changed this view completely.</p>
+  <p>Every time I resolved a support ticket, fixed a SharePoint permission issue, or set up a Power Automate workflow, I documented it. <strong>What the problem was. What I tried. What worked. Why it worked.</strong></p>
+  <p>Three times during my internship, someone came to me with the exact same problem I had already solved. I sent them my documentation. Problem solved in 2 minutes instead of 2 hours. My manager noticed. My colleagues appreciated it. It made me look competent and thorough.</p>
+  <p>Documentation is not the boring part — it is what separates good engineers from great ones.</p>
+
+  <h2>4. Your Certifications Open Doors — But Experience Builds Credibility</h2>
+  <div class="lesson-num">04</div>
+  <p>My AZ-900 and Google Cybersecurity certifications absolutely helped me get the internship. They signalled that I was serious and self-motivated. But once I was in the room, <strong>nobody cared about my certifications anymore.</strong></p>
+  <p>What built my credibility with colleagues was getting things done. Delivering the blog migration on time with zero data loss. Solving a SharePoint access issue that had been annoying a team for weeks. Building a workflow that saved someone hours of manual work.</p>
+  <p>Certifications get you in. Results keep you there. Focus on both.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">💡 For Students Still Studying</div>
+    <p>Don't wait until you graduate to start building. Every project you build, every cert you earn, every GitHub commit you make is evidence that you can execute. Start now — your future self will thank you.</p>
+  </div>
+
+  <h2>5. The Network You Build Is Worth More Than the Salary</h2>
+  <div class="lesson-num">05</div>
+  <p>An internship salary is usually modest. But the professional relationships you build during an internship — with colleagues, managers, clients, and even other interns — are <strong>worth far more over a career.</strong></p>
+  <p>Be genuinely helpful. Be curious about what other teams do. Connect with everyone on LinkedIn. Stay in touch after you move on. The IT industry in South Africa is smaller than you think. The people you meet during your internship will cross your path again.</p>
+
+  <div class="key-takeaway">
+    <h4>KEY TAKEAWAYS</h4>
+    <ul>
+      <li>Technical skills get you in — communication skills keep you there</li>
+      <li>Good companies give interns real responsibility early. Be ready for it</li>
+      <li>Document everything. It makes you look competent and helps your whole team</li>
+      <li>Certifications open doors. Delivered results build your reputation</li>
+      <li>The network you build during an internship is your most valuable long-term asset</li>
+    </ul>
+  </div>
+
+  <p>Your first IT internship will be one of the most formative experiences of your career. Go in with your eyes open, work hard, communicate clearly, and document everything. The rest will follow.</p>
+  <p>If you're about to start your first internship and want to chat, find me on <a href="https://linkedin.com/in/Mashudu-ramoba" style="color:var(--acid)">LinkedIn</a>.</p>
+
+<div class="share-row">
+  <span class="share-label">Share this post</span>
+  <button class="share-btn tw" onclick="sharePost('twitter')">𝕏 Twitter</button>
+  <button class="share-btn li" onclick="sharePost('linkedin')">💼 LinkedIn</button>
+  <button class="share-btn wa" onclick="sharePost('whatsapp')">💬 WhatsApp</button>
+  <button class="share-btn cp" onclick="sharePost('copy')">🔗 Copy Link</button>
+</div>
+</article>
+
+<div class="post-nav">
+  <a href="post-sharepoint-guide.html" class="pnl"><span class="pnl-label">← Previous</span><span class="pnl-title">SharePoint Permissions Explained</span></a>
+  <a href="post-ecommerce-breakdown.html" class="pnl" style="text-align:right"><span class="pnl-label">Next →</span><span class="pnl-title">How I Built a Full E-Commerce Site with React.js</span></a>
+</div>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="theme-btn" onclick="toggleTheme()">🌙</button>
+<script src="main.js"></script>
+</body></html>

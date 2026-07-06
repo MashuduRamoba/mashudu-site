@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Projects — Mashudu Ramoba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.pr-filters{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:2rem 4% 0}
+.pf-btn{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.42rem 1.1rem;border-radius:2rem;border:1px solid var(--border);background:transparent;color:var(--mist);cursor:pointer;transition:all .22s}
+.pf-btn:hover{border-color:var(--border2);color:var(--paper)}
+.pf-btn.on{background:var(--acid);color:var(--ink);border-color:var(--acid);font-weight:700}
+.pr-count{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-left:auto}
+.pr-count span{color:var(--acid);font-weight:700}
+
+.pr-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;padding:2.5rem 4% 6rem}
+.pc{background:var(--ink2);border:1px solid var(--border);border-radius:1.1rem;overflow:hidden;transition:border-color .3s,transform .35s,box-shadow .35s;display:flex;flex-direction:column}
+.pc:hover{border-color:var(--border2);transform:translateY(-7px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.pc.w{grid-column:span 2}
+.pc.hidden{display:none}
+.pv{height:230px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pc.w .pv{height:280px}
+.pbg{position:absolute;inset:0;transition:transform .7s cubic-bezier(.25,.46,.45,.94)}
+.pc:hover .pbg{transform:scale(1.07)}
+.pb1{background:radial-gradient(ellipse at 30% 60%,#1e0e42,#07030f)}
+.pb2{background:radial-gradient(ellipse at 70% 30%,#082038,#020810)}
+.pb3{background:radial-gradient(ellipse at 50% 55%,#301508,#0c0402)}
+.pb4{background:radial-gradient(ellipse at 20% 70%,#0c1e14,#020806)}
+.pb5{background:radial-gradient(ellipse at 60% 40%,#1a1040,#060310)}
+.pb6{background:radial-gradient(ellipse at 40% 60%,#2a0e0e,#0a0202)}
+.pb7{background:radial-gradient(ellipse at 50% 50%,#0e1a2a,#020508)}
+.pb8{background:radial-gradient(ellipse at 35% 65%,#1a1208,#060402)}
+.pg{position:relative;z-index:1;font-family:var(--fd);font-size:5rem;line-height:1;letter-spacing:-.02em;user-select:none;transition:transform .45s,letter-spacing .45s}
+.pc:hover .pg{transform:scale(1.12);letter-spacing:.05em}
+.pg1{color:rgba(212,245,60,.82)}.pg2{color:rgba(59,191,252,.75)}.pg3{color:rgba(201,75,47,.82)}
+.pg4{color:rgba(200,169,110,.75)}.pg5{color:rgba(180,100,255,.82)}.pg6{color:rgba(255,100,100,.75)}
+.pg7{color:rgba(80,210,160,.82)}.pg8{color:rgba(255,180,60,.75)}
+.pov{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(6,6,9,.97) 0%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem;opacity:0;transition:opacity .32s}
+.pc:hover .pov{opacity:1}
+.pov-inner{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.pov-stat{text-align:center}
+.pov-stat strong{display:block;font-family:var(--fd);font-size:1.4rem;color:var(--acid);line-height:1}
+.pov-stat span{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist2)}
+.pb{padding:1.7rem 1.9rem 2rem;flex:1;display:flex;flex-direction:column}
+.pm{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem;flex-wrap:wrap;gap:.4rem}
+.ptag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:.2rem .62rem;border-radius:1rem}
+.pt1{background:rgba(212,245,60,.1);color:var(--acid);border:1px solid rgba(212,245,60,.2)}
+.pt2{background:rgba(59,191,252,.08);color:var(--sky);border:1px solid rgba(59,191,252,.16)}
+.pt3{background:rgba(201,75,47,.1);color:#e06040;border:1px solid rgba(201,75,47,.2)}
+.pt4{background:rgba(200,169,110,.08);color:var(--gold);border:1px solid rgba(200,169,110,.15)}
+.pt5{background:rgba(180,100,255,.1);color:var(--purple);border:1px solid rgba(180,100,255,.2)}
+.pyr{font-size:.6rem;letter-spacing:.1em;color:var(--mist);text-transform:uppercase}
+.p-title{font-family:var(--fd);font-size:1.48rem;letter-spacing:.05em;margin-bottom:.55rem;line-height:1}
+.p-summary{font-size:.83rem;color:var(--mist2);line-height:1.78;margin-bottom:1.2rem}
+.p-accordion{border-top:1px solid var(--border);margin-top:auto;padding-top:1rem}
+.p-acc-tabs{display:flex;gap:.3rem;margin-bottom:1rem;flex-wrap:wrap}
+.p-acc-tab{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:.3rem .75rem;border-radius:1rem;border:1px solid var(--border);background:transparent;color:var(--mist);cursor:pointer;transition:all .18s}
+.p-acc-tab:hover{border-color:var(--border2);color:var(--paper)}
+.p-acc-tab.on{background:rgba(240,235,226,.08);border-color:var(--border2);color:var(--paper)}
+.p-acc-panel{display:none;animation:fadeUp .25s ease}
+.p-acc-panel.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.p-acc-text{font-size:.82rem;color:var(--mist2);line-height:1.8}
+.p-acc-text strong{color:var(--paper);font-weight:600}
+.p-acc-text ul{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin-top:.5rem}
+.p-acc-text ul li{padding-left:1.1rem;position:relative}
+.p-acc-text ul li::before{content:'—';position:absolute;left:0;color:rgba(212,245,60,.45);font-size:.7rem;top:.05em}
+.p-stack{display:flex;gap:.38rem;flex-wrap:wrap;margin-top:1rem}
+.p-st{font-size:.59rem;padding:.16rem .5rem;background:rgba(240,235,226,.04);border:1px solid var(--border);border-radius:.3rem;color:var(--mist);letter-spacing:.04em}
+.pc-split{display:grid;grid-template-columns:1fr 1fr}
+.pc-split .pv{height:100%;min-height:230px}
+.pr-empty{display:none;grid-column:1/-1;text-align:center;padding:5rem 0;font-size:.88rem;color:var(--mist)}
+.pr-empty.show{display:block}
+@media(max-width:900px){.pr-grid{grid-template-columns:1fr}.pc.w{grid-column:span 1}.pc-split{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<div id="search-hint" style="position:fixed;bottom:5rem;right:2rem;z-index:600;display:flex;align-items:center;gap:.5rem;background:var(--ink2);border:1px solid var(--border2);border-radius:2rem;padding:.4rem 1rem;font-size:.62rem;color:var(--mist);letter-spacing:.08em;cursor:pointer;transition:all .2s;animation:hintPop .5s 2s both cubic-bezier(.22,1,.36,1)" onclick="openSearch()"><span>🔍 Search</span><kbd style="background:var(--ink3);border:1px solid var(--border2);border-radius:.3rem;padding:.1rem .4rem;font-family:monospace;font-size:.65rem;color:var(--mist2)">Ctrl K</kbd></div>
+<nav id="nav">
+  <a href="index.html" class="nl"><div class="nl-badge">MR</div><div class="nl-text"><span class="nl-name">Mashudu Ramoba</span><span class="nl-role">Software Developer</span></div></a>
+  <div class="nl-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certs</a><a href="contact.html">Contact</a></div>
+  <div class="nl-r"><div class="nl-avail"><span class="pdot"></span>Available</div><button class="nl-hire" onclick="location.href='contact.html'">Hire Me</button><button class="nl-ham" id="ham"><span></span><span></span><span></span></button></div>
+</nav>
+<div id="drawer"><a href="index.html" onclick="closeDrawer()">Home</a><a href="about.html" onclick="closeDrawer()">About</a><a href="experience.html" onclick="closeDrawer()">Experience</a><a href="projects.html" onclick="closeDrawer()">Projects</a><a href="blog.html" onclick="closeDrawer()">Blog</a><a href="certifications.html" onclick="closeDrawer()">Certifications</a><a href="contact.html" onclick="closeDrawer()">Contact</a></div>
+
+<div class="pg-header" data-title="PROJECTS">
+  <p class="pg-kicker">Selected Work</p>
+  <h1 class="pg-title">All <span>Projects</span></h1>
+  <p class="pg-sub">8 projects across work, academic, and personal categories — with full problem, role, stack, and impact detail.</p>
+</div>
+
+<!-- Filters -->
+<div class="pr-filters rv">
+  <button class="pf-btn on" onclick="filterP('all',this)">All</button>
+  <button class="pf-btn" onclick="filterP('work',this)">Work</button>
+  <button class="pf-btn" onclick="filterP('academic',this)">Academic</button>
+  <button class="pf-btn" onclick="filterP('personal',this)">Personal</button>
+  <span class="pr-count"><span id="pr-num">8</span> projects</span>
+</div>
+
+<div class="pr-grid" id="prg">
+
+  <!-- 1 HubSpot WordPress (WORK, wide) -->
+  <div class="pc w rv" data-cat="work">
+    <div class="pv"><div class="pbg pb1"></div><div class="pg pg1">BLOG</div>
+      <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>100%</strong><span>Data Preserved</span></div><div class="pov-stat"><strong>~0</strong><span>Downtime</span></div><div class="pov-stat"><strong>EMEA</strong><span>Region</span></div></div></div>
+    </div>
+    <div class="pb">
+      <div class="pm"><span class="ptag pt1">Migration</span><span class="pyr">2024 · Landis+Gyr</span></div>
+      <h3 class="p-title">HubSpot → WordPress Migration</h3>
+      <p class="p-summary">Migrated Landis+Gyr's EMEA company blog from HubSpot to WordPress — preserving all content, SEO rankings, URLs, and design with zero significant operational downtime.</p>
+      <div class="p-accordion">
+        <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p1a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p1b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p1c')">Impact</button></div>
+        <div class="p-acc-panel on" id="p1a"><div class="p-acc-text">The company needed to leave HubSpot's expensive CMS without breaking content, SEO, URLs, or the visual identity readers and clients relied on.</div></div>
+        <div class="p-acc-panel" id="p1b"><div class="p-acc-text"><ul><li>Planned and executed full content migration strategy end-to-end</li><li>Mapped and redirected all URLs to preserve SEO value</li><li>Rebuilt blog design in WordPress to match original</li><li>Validated every post, image, and metadata entry post-migration</li><li>Coordinated testing and sign-off with EMEA teams</li></ul></div></div>
+        <div class="p-acc-panel" id="p1c"><div class="p-acc-text"><strong>Zero data loss</strong> across all blog content. <strong>No measurable downtime</strong> during cutover. SEO rankings maintained. Reduced CMS licensing costs for the organisation.</div></div>
+      </div>
+      <div class="p-stack"><span class="p-st">WordPress</span><span class="p-st">HubSpot</span><span class="p-st">SEO</span><span class="p-st">CSS</span><span class="p-st">Data Migration</span><span class="p-st">QA Testing</span></div>
+    </div>
+  </div>
+
+  <!-- 2 Power Automate (WORK) -->
+  <div class="pc rv" data-cat="work">
+    <div class="pv"><div class="pbg pb2"></div><div class="pg pg2">AUTO</div>
+      <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>Hours</strong><span>Saved Weekly</span></div><div class="pov-stat"><strong>EMEA</strong><span>Multi-region</span></div></div></div>
+    </div>
+    <div class="pb">
+      <div class="pm"><span class="ptag pt2">Automation</span><span class="pyr">2024 · Landis+Gyr</span></div>
+      <h3 class="p-title">Power Automate Workflows</h3>
+      <p class="p-summary">Designed and deployed automated document management and approval workflows using Power Automate and SharePoint to eliminate manual admin bottlenecks across EMEA.</p>
+      <div class="p-accordion">
+        <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p2a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p2b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p2c')">Impact</button></div>
+        <div class="p-acc-panel on" id="p2a"><div class="p-acc-text">Teams were manually routing documents and approval requests across EMEA — causing delays, version-control issues, and wasted engineer time.</div></div>
+        <div class="p-acc-panel" id="p2b"><div class="p-acc-text"><ul><li>Gathered business requirements from cross-team stakeholders</li><li>Designed multi-step approval flows in Power Automate</li><li>Integrated flows with SharePoint libraries and Teams notifications</li><li>Tested, debugged, and documented all workflows</li></ul></div></div>
+        <div class="p-acc-panel" id="p2c"><div class="p-acc-text">Eliminated hours of manual routing per week. Reduced approval turnaround significantly. Improved audit trail and version control across all connected SharePoint sites.</div></div>
+      </div>
+      <div class="p-stack"><span class="p-st">Power Automate</span><span class="p-st">SharePoint</span><span class="p-st">Microsoft 365</span><span class="p-st">Teams</span><span class="p-st">Azure AD</span></div>
+    </div>
+  </div>
+
+  <!-- 3 Dynamics 365 (WORK) -->
+  <div class="pc rv d1" data-cat="work">
+    <div class="pv"><div class="pbg pb5"></div><div class="pg pg5">CRM</div>
+      <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>100%</strong><span>Validation Pass</span></div><div class="pov-stat"><strong>QA</strong><span>Signed Off</span></div></div></div>
+    </div>
+    <div class="pb">
+      <div class="pm"><span class="ptag pt5">Data &amp; QA</span><span class="pyr">2024 · Landis+Gyr</span></div>
+      <h3 class="p-title">Dynamics 365 Data Import &amp; QA</h3>
+      <p class="p-summary">Imported and rigorously validated large volumes of client account data into Microsoft Dynamics 365 Sandbox to support full system testing before production rollout.</p>
+      <div class="p-accordion">
+        <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p3a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p3b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p3c')">Impact</button></div>
+        <div class="p-acc-panel on" id="p3a"><div class="p-acc-text">Before going live on Dynamics 365, all existing client account data needed accurate import into the sandbox and testing against expected system behaviour.</div></div>
+        <div class="p-acc-panel" id="p3b"><div class="p-acc-text"><ul><li>Mapped source data fields to Dynamics 365 schema</li><li>Executed bulk imports using CSV and native D365 tools</li><li>Wrote validation scripts verifying counts, field integrity, and relationships</li><li>Documented discrepancies and resolved with senior engineers</li></ul></div></div>
+        <div class="p-acc-panel" id="p3c"><div class="p-acc-text"><strong>100% data validation pass rate</strong> on final QA cycle. Identified multiple mapping issues that would have caused production failures.</div></div>
+      </div>
+      <div class="p-stack"><span class="p-st">Dynamics 365</span><span class="p-st">Microsoft 365</span><span class="p-st">Data Validation</span><span class="p-st">QA Testing</span><span class="p-st">CSV</span></div>
+    </div>
+  </div>
+
+  <!-- 4 Generator Monitoring (WORK) -->
+  <div class="pc rv d2" data-cat="work">
+    <div class="pv"><div class="pbg pb6"></div><div class="pg pg6">GEN</div>
+      <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>30%</strong><span>Less Downtime</span></div><div class="pov-stat"><strong>Real-time</strong><span>Alerting</span></div></div></div>
+    </div>
+    <div class="pb">
+      <div class="pm"><span class="ptag pt3">Scripting &amp; Ops</span><span class="pyr">2024 · Huawei/MTN</span></div>
+      <h3 class="p-title">Generator Monitoring Automation</h3>
+      <p class="p-summary">Built automated Python scripts to monitor generator performance and generate real-time alerts — helping cut infrastructure downtime by 30% across MTN sites.</p>
+      <div class="p-accordion">
+        <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p4a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p4b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p4c')">Impact</button></div>
+        <div class="p-acc-panel on" id="p4a"><div class="p-acc-text">Generator performance was monitored manually, leading to delayed fault responses and avoidable outages at critical network infrastructure sites.</div></div>
+        <div class="p-acc-panel" id="p4b"><div class="p-acc-text"><ul><li>Developed Python scripts to poll generator telemetry and flag anomalies</li><li>Integrated alerting into the operations team dispatch workflow</li><li>Maintained and updated monitoring logic as infrastructure changed</li><li>Coordinated with field technicians on preventive maintenance</li></ul></div></div>
+        <div class="p-acc-panel" id="p4c"><div class="p-acc-text"><strong>30% reduction in infrastructure downtime.</strong> Real-time alerts enabled faster dispatch. Data analysis surfaced recurring faults, enabling proactive maintenance scheduling.</div></div>
+      </div>
+      <div class="p-stack"><span class="p-st">Python</span><span class="p-st">Scripting</span><span class="p-st">Monitoring</span><span class="p-st">Data Analysis</span><span class="p-st">Automation</span></div>
+    </div>
+  </div>
+
+  <!-- 5 Inventory System (ACADEMIC, wide split) -->
+  <div class="pc w rv d1" data-cat="academic">
+    <div class="pc-split">
+      <div class="pv" style="min-height:230px"><div class="pbg pb3"></div><div class="pg pg3">INV</div>
+        <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>C++</strong><span>&amp; MySQL</span></div><div class="pov-stat"><strong>Full</strong><span>CRUD System</span></div></div></div>
+      </div>
+      <div class="pb" style="display:flex;flex-direction:column;justify-content:center;padding:2.2rem">
+        <div class="pm"><span class="ptag pt3">Academic · TUT</span><span class="pyr">2023</span></div>
+        <h3 class="p-title">Inventory Management System</h3>
+        <p class="p-summary">A full-featured inventory system with stock tracking, CRUD operations, low-stock alerts, and printable reports — built with C++ and MySQL.</p>
+        <div class="p-accordion">
+          <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p5a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p5b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p5c')">Impact</button></div>
+          <div class="p-acc-panel on" id="p5a"><div class="p-acc-text">TUT capstone project simulating a real business inventory challenge — tracking stock, purchases, sales, and generating actionable reports from a relational database.</div></div>
+          <div class="p-acc-panel" id="p5b"><div class="p-acc-text"><ul><li>Designed the relational database schema in MySQL</li><li>Built C++ application with full OOP architecture</li><li>Implemented CRUD operations, search, filtering, and low-stock alerts</li><li>Added report generation and export functionality</li></ul></div></div>
+          <div class="p-acc-panel" id="p5c"><div class="p-acc-text">Received distinction-level feedback for code quality and feature completeness. Demonstrated strong <strong>OOP principles</strong> and relational database design.</div></div>
+        </div>
+        <div class="p-stack"><span class="p-st">C++</span><span class="p-st">MySQL</span><span class="p-st">OOP</span><span class="p-st">Database Design</span><span class="p-st">CRUD</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 E-Commerce (ACADEMIC) -->
+  <div class="pc rv d2" data-cat="academic">
+    <div class="pv"><div class="pbg pb4"></div><div class="pg pg4">SHOP</div>
+      <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>React</strong><span>Frontend</span></div><div class="pov-stat"><strong>Fully</strong><span>Responsive</span></div></div></div>
+    </div>
+    <div class="pb">
+      <div class="pm"><span class="ptag pt4">Academic · TUT</span><span class="pyr">2023</span></div>
+      <h3 class="p-title">Responsive E-Commerce Site</h3>
+      <p class="p-summary">A pixel-perfect responsive e-commerce storefront with product listings, live cart, and checkout flow — built with React.js and modern JavaScript.</p>
+      <div class="p-accordion">
+        <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p6a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p6b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p6c')">Impact</button></div>
+        <div class="p-acc-panel on" id="p6a"><div class="p-acc-text">TUT Web Development project requiring a production-grade e-commerce UI — fully responsive across device sizes with real interactive cart logic and clean component architecture.</div></div>
+        <div class="p-acc-panel" id="p6b"><div class="p-acc-text"><ul><li>Designed and built all UI components from scratch in React.js</li><li>Implemented cart state management using React Hooks</li><li>Ensured full mobile responsiveness with CSS Grid and Flexbox</li><li>Applied modern UI/UX principles throughout</li></ul></div></div>
+        <div class="p-acc-panel" id="p6c"><div class="p-acc-text">Demonstrated professional-grade <strong>React.js</strong> architecture and responsive design skills. Praised for clean code and attention to detail in UI/UX.</div></div>
+      </div>
+      <div class="p-stack"><span class="p-st">React.js</span><span class="p-st">JavaScript</span><span class="p-st">HTML5</span><span class="p-st">CSS3</span><span class="p-st">React Hooks</span></div>
+    </div>
+  </div>
+
+  <!-- 7 SharePoint Toolkit (PERSONAL) -->
+  <div class="pc rv d1" data-cat="personal">
+    <div class="pv"><div class="pbg pb7"></div><div class="pg pg7">SPT</div>
+      <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>IT Teams</strong><span>Target Users</span></div><div class="pov-stat"><strong>Hours</strong><span>Saved</span></div></div></div>
+    </div>
+    <div class="pb">
+      <div class="pm"><span class="ptag pt2">Personal Project</span><span class="pyr">2024</span></div>
+      <h3 class="p-title">SharePoint Permissions Toolkit</h3>
+      <p class="p-summary">A personal utility to automate SharePoint permission audits and group configuration tasks — built from real pain points experienced daily at Landis+Gyr.</p>
+      <div class="p-accordion">
+        <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p7a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p7b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p7c')">Impact</button></div>
+        <div class="p-acc-panel on" id="p7a"><div class="p-acc-text">Auditing SharePoint permissions manually was time-consuming and error-prone — especially across multiple sites with many user groups and restricted access settings.</div></div>
+        <div class="p-acc-panel" id="p7b"><div class="p-acc-text"><ul><li>Designed a PowerShell toolkit using the SharePoint REST API</li><li>Built permission audit functionality that outputs a clean summary report</li><li>Added batch configuration for common permission scenarios</li><li>Documented usage and edge-case handling</li></ul></div></div>
+        <div class="p-acc-panel" id="p7c"><div class="p-acc-text">Reduced permission audit time from hours to minutes. Improved configuration accuracy and consistency. Applied professional skills directly into a personal tool.</div></div>
+      </div>
+      <div class="p-stack"><span class="p-st">PowerShell</span><span class="p-st">SharePoint REST API</span><span class="p-st">Microsoft 365</span><span class="p-st">Automation</span></div>
+    </div>
+  </div>
+
+  <!-- 8 Portfolio (PERSONAL) -->
+  <div class="pc rv d2" data-cat="personal">
+    <div class="pv"><div class="pbg pb8"></div><div class="pg pg8">PORT</div>
+      <div class="pov"><div class="pov-inner"><div class="pov-stat"><strong>This</strong><span>Site</span></div><div class="pov-stat"><strong>Zero</strong><span>Frameworks</span></div></div></div>
+    </div>
+    <div class="pb">
+      <div class="pm"><span class="ptag pt1">Personal Project</span><span class="pyr">2025</span></div>
+      <h3 class="p-title">Personal Portfolio Website</h3>
+      <p class="p-summary">This multi-page portfolio site — built entirely from scratch with pure HTML, CSS, and JavaScript. No frameworks, no templates, no dependencies.</p>
+      <div class="p-accordion">
+        <div class="p-acc-tabs"><button class="p-acc-tab on" onclick="sTab(this,'p8a')">Problem</button><button class="p-acc-tab" onclick="sTab(this,'p8b')">My Role</button><button class="p-acc-tab" onclick="sTab(this,'p8c')">Impact</button></div>
+        <div class="p-acc-panel on" id="p8a"><div class="p-acc-text">Needed a professional online presence that genuinely reflected skills and experience — rather than a generic template indistinguishable from every other developer's portfolio.</div></div>
+        <div class="p-acc-panel" id="p8b"><div class="p-acc-text"><ul><li>Designed the full visual identity, layout, and typography system</li><li>Built every section from scratch across 6 separate pages</li><li>Implemented dark/light mode, scroll animations, page transitions, and mobile nav</li><li>Optimised performance and accessibility throughout</li></ul></div></div>
+        <div class="p-acc-panel" id="p8c"><div class="p-acc-text">A living showcase of both design sensibility and technical execution — demonstrating the ability to go from concept to polished, production-quality output with <strong>zero dependencies</strong>.</div></div>
+      </div>
+      <div class="p-stack"><span class="p-st">HTML5</span><span class="p-st">CSS3</span><span class="p-st">JavaScript</span><span class="p-st">Responsive</span><span class="p-st">UI/UX</span><span class="p-st">Animations</span></div>
+    </div>
+  </div>
+
+  <div class="pr-empty" id="pr-empty">No projects match this filter.</div>
+</div>
+
+<footer>
+  <div class="ft-top"><div class="ft-brand"><div class="ft-logo">MR.</div><p class="ft-tagline">Software Developer based in Midrand, Gauteng.</p><div class="ft-social"><a href="https://github.com/MashuduRamoba" target="_blank" class="ft-soc">⌨</a><a href="https://linkedin.com/in/Mashudu-ramoba" target="_blank" class="ft-soc">💼</a><a href="mailto:mashuduramoba365@gmail.com" class="ft-soc">✉</a></div></div><div class="ft-links"><div class="ft-nav-group"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="experience.html">Experience</a></div><div class="ft-nav-group"><h4>Work</h4><a href="projects.html">Projects</a><a href="blog.html">Blog</a><a href="certifications.html">Certifications</a><a href="contact.html">Contact</a></div></div></div>
+  <div class="ft-bottom"><span class="ft-copy">© 2025 Mashudu Ramoba · Midrand, Gauteng</span><span class="ft-status"><span class="pdot"></span>Available for opportunities</span></div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="theme-btn" onclick="toggleTheme()">🌙</button>
+<script src="main.js"></script>
+<script>
+function filterP(cat,btn){
+  document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  let count=0;
+  document.querySelectorAll('#prg .pc').forEach(c=>{
+    const show=cat==='all'||c.dataset.cat===cat;
+    c.classList.toggle('hidden',!show);
+    if(show)count++;
+  });
+  document.getElementById('pr-num').textContent=count;
+  document.getElementById('pr-empty').classList.toggle('show',count===0);
+}
+function sTab(btn,pid){
+  const acc=btn.closest('.p-accordion');
+  acc.querySelectorAll('.p-acc-tab').forEach(t=>t.classList.remove('on'));
+  acc.querySelectorAll('.p-acc-panel').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(pid).classList.add('on');
+}
+</script>
+</body></html>
