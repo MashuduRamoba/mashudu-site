@@ -71,12 +71,13 @@ function typeWriter(el, words, speed = 90, pause = 2000) {
 const typer = document.getElementById('typer');
 if (typer) {
   typeWriter(typer, [
-    'Software Developer',
-    'Power Automate Builder',
+    'Application Developer',
+    'Power Platform Specialist',
     'SharePoint Engineer',
     'React.js Developer',
     'Azure Certified',
-    'Problem Solver',
+    'Enterprise Automation',
+    'Cloud & AI Enthusiast',
   ]);
 }
 
